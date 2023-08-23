@@ -20,6 +20,17 @@ function getMeme() {
     return gMeme
 }
 
+function changeTxtSize(size) {
+    const wantedSize = gMeme.lines[0].size + size
+    if (wantedSize <= 10 || wantedSize >= 50) return
+
+    gMeme.lines[0].size += size
+}
+
+function setTxtColor(color) {
+    gMeme.lines[0].color = color
+}
+
 function setImg(id) {
     gMeme.selectedImgId = id
 }

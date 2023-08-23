@@ -24,6 +24,16 @@ function renderMeme() {
     }
 }
 
+function onChangeTxtSize(size) {
+    changeTxtSize(size)
+    renderMeme()
+}
+
+function onSetTxtColor(elColor) {
+    setTxtColor(elColor.value)
+    renderMeme()
+}
+
 function onSetLineTxt(elInput) {
     setLineTxt(elInput.value)
     renderMeme()

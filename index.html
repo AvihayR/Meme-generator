@@ -19,9 +19,14 @@
                 <canvas width="400" height="400"></canvas>
             </article>
             <article class="controls-container">
-                <label>Line text: <input type="text" class="line-text" oninput="onSetLineTxt(this)"></label>
+                <label>Line text: <input type="text" class="line-text" title="Enter text for the selected line"
+                        oninput="onSetLineTxt(this)"></label>
+                <label>Text color: <input type="color" title="Pick a color for the selected line"
+                        oninput="onSetTxtColor(this)"></label>
+                <button title="Increase font" onclick="onChangeTxtSize(2)">A+</button>
+                <button title="Decrease font" onclick="onChangeTxtSize(-2)">A-</button>
             </article>
-            <article class="share-container">
+            <article class=" share-container">
                 <a href="" download="" onclick="onDownloadCanvas(this)">Download</a>
             </article>
 
