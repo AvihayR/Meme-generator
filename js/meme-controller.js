@@ -10,20 +10,23 @@ function onInit() {
 }
 
 function renderMeme() {
-    createImg()
+    const meme = getMeme()
+    const imgSrc = findImg(meme.selectedImgId).url
+    const firstLine = meme.lines[0]
 
+    loadImg(imgSrc)
     gImg.onload = () => {
         gElCanvas.height = (gImg.naturalHeight / gImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(gImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText()
+        drawText(firstLine.txt, firstLine.size, firstLine.color)
     }
 }
 
-function drawText(text = 'Insert text here', x = gElCanvas.width / 2, y = 35) {
-    gCtx.lineWidth = 2
+function drawText(text = 'Insert text here', size = 20, color = '#FFFFFF', x = gElCanvas.width / 2, y = 35) {
+    gCtx.lineWidth = 1
     gCtx.strokeStyle = '1A1A1A'
-    gCtx.fillStyle = '#FFFFFF'
-    gCtx.font = '50px Arial'
+    gCtx.fillStyle = color
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -31,7 +34,7 @@ function drawText(text = 'Insert text here', x = gElCanvas.width / 2, y = 35) {
     gCtx.strokeText(text, x, y)
 }
 
-function createImg() {
+function loadImg(src) {
     gImg = new Image()
-    gImg.src = 'img/3.jpg'
+    gImg.src = src
 }
