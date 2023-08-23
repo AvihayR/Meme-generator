@@ -1,8 +1,7 @@
 'use strict'
+let gImgs = [{ id: 3, url: 'img/3.jpg', keywords: ['funny', 'cat'] }]
 
-var gImgs = [{ id: 3, url: 'img/3.jpg', keywords: ['funny', 'cat'] }]
-
-var gMeme = {
+let gMeme = {
     selectedImgId: 3,
     selectedLineIdx: 0,
     lines: [
@@ -10,25 +9,49 @@ var gMeme = {
             txt: 'How i sleep when there\'s no sprint ahead',
             size: 20,
             color: 'blue'
+        },
+        {
+            txt: 'Second line here',
+            size: 25,
+            color: 'white'
         }
     ]
 }
 
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+let gLineIdx = 0
+let gCurrLine = gMeme.lines[gLineIdx]
+
 
 function getMeme() {
     return gMeme
 }
 
+function getCurrLine() {
+    return gCurrLine
+}
+
+function switchLine() {
+    gLineIdx++
+    if (gLineIdx >= gMeme.lines.length) gLineIdx = 0
+    gCurrLine = gMeme.lines[gLineIdx]
+}
+
+function addLine(txt = 'Add text here..', size = 25, color = 'white') {
+    const newLine = { txt, size, color }
+    gMeme.lines.push(newLine)
+
+}
+
 function changeTxtSize(size) {
-    const wantedSize = gMeme.lines[0].size + size
+    const wantedSize = gCurrLine.size + size
     if (wantedSize <= 10 || wantedSize >= 50) return
 
-    gMeme.lines[0].size += size
+    gCurrLine.size += size
 }
 
 function setTxtColor(color) {
-    gMeme.lines[0].color = color
+    gCurrLine.color = color
 }
 
 function setImg(id) {
@@ -47,5 +70,5 @@ function createImg(url, keywords = ['funny', 'cat']) {
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
+    gCurrLine.txt = txt
 }

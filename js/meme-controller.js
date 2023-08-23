@@ -14,14 +14,26 @@ function onInit() {
 function renderMeme() {
     const meme = getMeme()
     const imgSrc = findImg(meme.selectedImgId).url
-    const firstLine = meme.lines[0]
+    const memeLines = meme.lines
 
     loadImg(imgSrc)
     gCurrImg.onload = () => {
         gElCanvas.height = (gCurrImg.naturalHeight / gCurrImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(gCurrImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(firstLine.txt, firstLine.size, firstLine.color)
+
+        let y = 0
+        memeLines.forEach(line => drawText(line, y += 20))
     }
+}
+
+function onSwitchLine() {
+    switchLine()
+    showTextInput()
+}
+
+function onAddLine() {
+    addLine()
+    renderMeme()
 }
 
 function onChangeTxtSize(size) {
@@ -40,11 +52,12 @@ function onSetLineTxt(elInput) {
 }
 
 function showTextInput() {
-    const txt = getMeme().lines[0].txt
+    const txt = getCurrLine().txt
     document.querySelector('.line-text').value = txt
 }
 
-function drawText(text = 'Insert text here', size = 20, color = '#FFFFFF', x = gElCanvas.width / 2, y = 35) {
+function drawText(line, y = 20, x = gElCanvas.width / 2) {
+    const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
     gCtx.lineWidth = 1
     gCtx.strokeStyle = '1A1A1A'
     gCtx.fillStyle = color
@@ -52,8 +65,8 @@ function drawText(text = 'Insert text here', size = 20, color = '#FFFFFF', x = g
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(txt, x, y)
+    gCtx.strokeText(txt, x, y)
 }
 
 function loadImg(src) {
