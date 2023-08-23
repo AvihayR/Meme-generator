@@ -37,6 +37,10 @@ function switchLine() {
     gCurrLine = gMeme.lines[gLineIdx]
 }
 
+function setLinePos(pos) {
+    gCurrLine.pos = pos
+}
+
 function addLine(txt = 'Add text here..', size = 25, color = 'white') {
     const newLine = { txt, size, color }
     gMeme.lines.push(newLine)
