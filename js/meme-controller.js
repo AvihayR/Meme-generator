@@ -2,6 +2,7 @@
 let gElCanvas
 let gCtx
 let gCurrImg
+let gIndicateLine = false
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -18,17 +19,24 @@ function renderMeme() {
 
     loadImg(imgSrc)
     gCurrImg.onload = () => {
+        let y = 0
         gElCanvas.height = (gCurrImg.naturalHeight / gCurrImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(gCurrImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
-        let y = 0
-        memeLines.forEach(line => drawText(line, y += 20))
+        memeLines.forEach(line => {
+            if (line === getCurrLine()) toggleIndicateLine()
+            drawText(line, y += 20)
+        })
     }
 }
 
 function onSwitchLine() {
     switchLine()
+    renderMeme()
     showTextInput()
+}
+
+function toggleIndicateLine() {
+    gIndicateLine = !gIndicateLine
 }
 
 function onAddLine() {
@@ -59,14 +67,21 @@ function showTextInput() {
 function drawText(line, y = 20, x = gElCanvas.width / 2) {
     const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
     gCtx.lineWidth = 1
-    gCtx.strokeStyle = '1A1A1A'
+    gCtx.strokeStyle = '4D4D4D'
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `bold ${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+
+    if (!gIndicateLine) return
+    const measText = gCtx.measureText(txt)
+    gCtx.lineWidth = 1.5
+    gCtx.rect((x - measText.width / 2) - 5, y - size / 2, measText.width + 10, size)
+    gCtx.stroke()
+    toggleIndicateLine()
 }
 
 function loadImg(src) {

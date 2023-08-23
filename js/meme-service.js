@@ -40,7 +40,6 @@ function switchLine() {
 function addLine(txt = 'Add text here..', size = 25, color = 'white') {
     const newLine = { txt, size, color }
     gMeme.lines.push(newLine)
-
 }
 
 function changeTxtSize(size) {
