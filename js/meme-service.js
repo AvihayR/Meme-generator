@@ -7,7 +7,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'How i sleep when there\'s a sprint ahead',
+            txt: 'How i sleep when there\'s no sprint ahead',
             size: 20,
             color: 'blue'
         }

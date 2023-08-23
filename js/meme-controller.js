@@ -50,3 +50,7 @@ function loadImg(src) {
     gCurrImg = new Image()
     gCurrImg.src = src
 }
+
+function onDownloadCanvas(elLink) {
+    elLink.href = gElCanvas.toDataURL('image/jpeg')
+}
