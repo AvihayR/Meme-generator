@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme generator</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body onload="onInit()">
@@ -14,9 +15,12 @@
     <main>
         <section class="gallery"></section>
         <section class="editor">
-            <section class="canvas-container">
+            <article class="canvas-container">
                 <canvas width="400" height="400"></canvas>
-            </section>
+            </article>
+            <article class="controls-container">
+                <label>Line text: <input type="text" class="line-text" oninput="onSetLineTxt(this)"></label>
+            </article>
 
         </section>
     </main>
@@ -26,6 +30,7 @@
 
     <script src="js/util.js"></script>
     <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
 

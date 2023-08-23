@@ -1,12 +1,14 @@
 'use strict'
 let gElCanvas
 let gCtx
-let gImg
+let gCurrImg
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
+    renderGallery()
     renderMeme()
+    showTextInput()
 }
 
 function renderMeme() {
@@ -15,11 +17,21 @@ function renderMeme() {
     const firstLine = meme.lines[0]
 
     loadImg(imgSrc)
-    gImg.onload = () => {
-        gElCanvas.height = (gImg.naturalHeight / gImg.naturalWidth) * gElCanvas.width
-        gCtx.drawImage(gImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    gCurrImg.onload = () => {
+        gElCanvas.height = (gCurrImg.naturalHeight / gCurrImg.naturalWidth) * gElCanvas.width
+        gCtx.drawImage(gCurrImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText(firstLine.txt, firstLine.size, firstLine.color)
     }
+}
+
+function onSetLineTxt(elInput) {
+    setLineTxt(elInput.value)
+    renderMeme()
+}
+
+function showTextInput() {
+    const txt = getMeme().lines[0].txt
+    document.querySelector('.line-text').value = txt
 }
 
 function drawText(text = 'Insert text here', size = 20, color = '#FFFFFF', x = gElCanvas.width / 2, y = 35) {
@@ -35,6 +47,6 @@ function drawText(text = 'Insert text here', size = 20, color = '#FFFFFF', x = g
 }
 
 function loadImg(src) {
-    gImg = new Image()
-    gImg.src = src
+    gCurrImg = new Image()
+    gCurrImg.src = src
 }

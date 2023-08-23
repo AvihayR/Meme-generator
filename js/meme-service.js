@@ -20,6 +20,21 @@ function getMeme() {
     return gMeme
 }
 
+function setImg(id) {
+    gMeme.selectedImgId = id
+}
+
 function findImg(imgId) {
     return gImgs.find(img => img.id === imgId)
+}
+
+function createImg(url, keywords = ['funny', 'cat']) {
+    const img = { id: makeId(), url, keywords }
+    gImgs.push(img)
+
+    return img
+}
+
+function setLineTxt(txt) {
+    gMeme.lines[0].txt = txt
 }

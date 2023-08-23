@@ -1,0 +1,7 @@
+main .gallery {
+    width: 50%;
+}
+
+main .gallery>* {
+    max-width: 100%;
+}
