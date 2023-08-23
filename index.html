@@ -7,7 +7,7 @@
     <title>Meme generator</title>
 </head>
 
-<body>
+<body onload="onInit()">
     <header>
         <h1>Meme generator</h1>
     </header>
@@ -15,12 +15,18 @@
         <section class="gallery"></section>
         <section class="editor">
             <section class="canvas-container">
-                <canvas width="450" height="450"></canvas>
+                <canvas width="400" height="400"></canvas>
             </section>
 
         </section>
     </main>
-    <footer></footer>
+    <footer>
+
+    </footer>
+
+    <script src="js/util.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
 
 </html>
