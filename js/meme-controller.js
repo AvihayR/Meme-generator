@@ -67,9 +67,10 @@ function showTextInput() {
 function drawText(line, y = 20, x = gElCanvas.width / 2) {
     const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
     gCtx.lineWidth = 1
-    gCtx.strokeStyle = '4D4D4D'
+    gCtx.strokeStyle = '#242424'
+    console.log(gCtx.strokeStyle)
     gCtx.fillStyle = color
-    gCtx.font = `bold ${size}px Arial`
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -78,8 +79,9 @@ function drawText(line, y = 20, x = gElCanvas.width / 2) {
 
     if (!gIndicateLine) return
     const measText = gCtx.measureText(txt)
-    gCtx.lineWidth = 1.5
+    gCtx.lineWidth = 1
     gCtx.rect((x - measText.width / 2) - 5, y - size / 2, measText.width + 10, size)
+    gCtx.strokeStyle = '#969696'
     gCtx.stroke()
     toggleIndicateLine()
 }

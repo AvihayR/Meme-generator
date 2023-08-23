@@ -7,7 +7,7 @@ let gMeme = {
     lines: [
         {
             txt: 'How i sleep when there\'s no sprint ahead',
-            size: 20,
+            size: 25,
             color: 'blue'
         },
         {
