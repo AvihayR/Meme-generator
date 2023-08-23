@@ -6,14 +6,16 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'How i sleep when there\'s no sprint ahead',
-            size: 25,
-            color: 'blue'
+            txt: 'Now i can sleep better :)',
+            size: 20,
+            color: 'blue',
+            pos: { x: 200, y: 15 }
         },
         {
-            txt: 'Second line here',
-            size: 25,
-            color: 'white'
+            txt: 'Awesome!',
+            size: 30,
+            color: 'white',
+            pos: { x: 200, y: 35 }
         }
     ]
 }
@@ -31,14 +33,14 @@ function getCurrLine() {
     return gCurrLine
 }
 
+function saveLinePos(line, pos) {
+    line.pos = pos
+}
+
 function switchLine() {
     gLineIdx++
     if (gLineIdx >= gMeme.lines.length) gLineIdx = 0
     gCurrLine = gMeme.lines[gLineIdx]
-}
-
-function setLinePos(pos) {
-    gCurrLine.pos = pos
 }
 
 function addLine(txt = 'Add text here..', size = 25, color = 'white') {
