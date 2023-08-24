@@ -12,10 +12,10 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
+    resizeCanvas()
     renderMeme()
     updateTextInput()
-    addMouseListeners()
-    addTouchListeners()
+    addListeners()
 }
 
 function renderMeme() {
@@ -37,6 +37,16 @@ function renderMeme() {
     }
 }
 
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme()
+    })
+}
+
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
@@ -52,9 +62,9 @@ function addTouchListeners() {
 function onDown(ev) {
     const pos = getEvPos(ev)
 
-    isTextClicked(pos)
-    updateTextInput()
+    checkIsOnText(pos)
     renderMeme()
+    updateTextInput()
     document.body.style.cursor = 'grabbing'
 }
 
@@ -87,7 +97,7 @@ function getEvPos(ev) {
     return pos
 }
 
-function isTextClicked(pos) {
+function checkIsOnText(pos) {
     const { x, y } = pos
 
     getMeme().lines.forEach(line => {
@@ -140,10 +150,31 @@ function updateTextInput() {
     document.querySelector('.line-text').value = txt
 }
 
-function drawText(line, pos) {
+function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }) {
     const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
-    const { y = 20, x = gElCanvas.width / 2 } = pos
+    const { x, y } = pos
 
+    drawTextOnCanvas(line, pos)
+    const textWidth = gCtx.measureText(txt).width
+    saveLinePos(line, { x, y, textWidth, size })
+
+    if (!gIndicateLine) return
+    //Draw a box around selected line
+    drawBoxSelectedLine(line)
+    toggleIndicateLine()
+}
+
+function drawBoxSelectedLine(line) {
+    const { x, y, textWidth, size } = line.pos
+    gCtx.lineWidth = 1.5
+    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
+    gCtx.strokeStyle = '#454545'
+    gCtx.stroke()
+}
+
+function drawTextOnCanvas(line, pos) {
+    const { txt, size, color } = line
+    const { x, y } = pos
     gCtx.lineWidth = 1
     gCtx.strokeStyle = '#242424'
     gCtx.fillStyle = color
@@ -153,16 +184,6 @@ function drawText(line, pos) {
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
-    const textWidth = gCtx.measureText(txt).width
-
-    saveLinePos(line, { x, y, textWidth, size })
-
-    if (!gIndicateLine) return
-    gCtx.lineWidth = 1.5
-    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
-    gCtx.strokeStyle = '#454545'
-    gCtx.stroke()
-    toggleIndicateLine()
 }
 
 function loadImg(src) {
@@ -172,4 +193,10 @@ function loadImg(src) {
 
 function onDownloadCanvas(elLink) {
     elLink.href = gElCanvas.toDataURL('image/jpeg')
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
 }
