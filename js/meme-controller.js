@@ -23,7 +23,7 @@ function renderMeme() {
     const imgSrc = findImg(meme.selectedImgId).url
     const memeLines = meme.lines
 
-    loadImg(imgSrc)
+    loadImgToCanvas(imgSrc)
     gCurrImg.onload = () => {
         let y = 0
         gElCanvas.height = (gCurrImg.naturalHeight / gCurrImg.naturalWidth) * gElCanvas.width
@@ -164,14 +164,6 @@ function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 
     toggleIndicateLine()
 }
 
-function drawBoxSelectedLine(line) {
-    const { x, y, textWidth, size } = line.pos
-    gCtx.lineWidth = 1.5
-    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
-    gCtx.strokeStyle = '#454545'
-    gCtx.stroke()
-}
-
 function drawTextOnCanvas(line, pos) {
     const { txt, size, color } = line
     const { x, y } = pos
@@ -186,7 +178,15 @@ function drawTextOnCanvas(line, pos) {
     gCtx.strokeText(txt, x, y)
 }
 
-function loadImg(src) {
+function drawBoxSelectedLine(line) {
+    const { x, y, textWidth, size } = line.pos
+    gCtx.lineWidth = 1.5
+    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
+    gCtx.strokeStyle = '#454545'
+    gCtx.stroke()
+}
+
+function loadImgToCanvas(src) {
     gCurrImg = new Image()
     gCurrImg.src = src
 }

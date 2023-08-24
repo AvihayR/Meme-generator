@@ -3,8 +3,7 @@
 function renderGallery() {
     const elGallery = document.querySelector('.gallery')
     let strHTML = ''
-    strHTML += onCreateImg('img/1.jpg')
-    strHTML += onCreateImg('img/2.jpg')
+    getImgs().forEach(img => strHTML += onRenderImg(img))
 
     elGallery.innerHTML = strHTML
 }
@@ -12,10 +11,9 @@ function renderGallery() {
 function onImgSelect(elImg) {
     setImg(elImg.dataset.imgId)
     renderMeme()
-    // setImg(elImg.data['img-id'])
 }
 
-function onCreateImg(url) {
-    const img = createImg(url, ['funny', 'cat'])
-    return `<img src=${url} data-img-id=${img.id} onclick="onImgSelect(this)">`
+function onRenderImg(img) {
+    const { url, id } = img
+    return `<img src=${url} data-img-id=${id} onclick="onImgSelect(this)">`
 }

@@ -21,6 +21,7 @@ let gMeme = {
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gLineIdx = 0
 let gCurrLine = gMeme.lines[gLineIdx]
+createImgs()
 
 
 function getMeme() {
@@ -65,11 +66,19 @@ function findImg(imgId) {
     return gImgs.find(img => img.id === imgId)
 }
 
-function createImg(url, keywords = ['funny', 'cat']) {
+function getImgs() {
+    return gImgs
+}
+
+function createImgs() {
+    for (let i = 1; i < 18; i++) {
+        createImg(`img/${i}.jpg`)
+    }
+}
+
+function createImg(url, keywords = ['funny']) {
     const img = { id: makeId(), url, keywords }
     gImgs.push(img)
-
-    return img
 }
 
 function setLineTxt(txt) {
