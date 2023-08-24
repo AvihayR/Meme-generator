@@ -4,7 +4,9 @@ let gCtx
 let gCurrImg
 let gIndicateLine = false
 let gIsOnText = false
-let gSelectedText
+// let gSelectedText
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -48,25 +50,45 @@ function addTouchListeners() {
 }
 
 function onDown(ev) {
-    checkOnText(ev)
-    gCurrLine = gSelectedText
-    updateTextInput()
-    // renderMeme()
+    const pos = getEvPos(ev)
 
+    isTextClicked(pos)
+    updateTextInput()
+    renderMeme()
+    document.body.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
     if (!gIsOnText) return
-    drawText(gSelectedText, { y: ev.offsetY, x: ev.offsetX })
+    const pos = getEvPos(ev)
+    drawText(gCurrLine, pos)
     renderMeme()
 }
 
 function onUp(ev) {
     gIsOnText = false
+    document.body.style.cursor = 'unset'
 }
 
-function checkOnText(ev) {
-    const { offsetX, offsetY } = ev
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    if (TOUCH_EVS.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
+    return pos
+}
+
+function isTextClicked(pos) {
+    const { x, y } = pos
 
     getMeme().lines.forEach(line => {
         const linePos = line.pos
@@ -76,9 +98,9 @@ function checkOnText(ev) {
         const startY = linePos.y - linePos.size / 2
         const endY = linePos.y + linePos.size / 2
 
-        if (offsetX >= startX && offsetX <= endX && offsetY >= startY && offsetY <= endY) {
+        if (x >= startX && x <= endX && y >= startY && y <= endY) {
             gIsOnText = true
-            gSelectedText = line
+            gCurrLine = line
         }
     })
 }
@@ -125,7 +147,7 @@ function drawText(line, pos) {
     gCtx.lineWidth = 1
     gCtx.strokeStyle = '#242424'
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Tahoma`
+    gCtx.font = `bold ${size}px Trebuchet MS`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 

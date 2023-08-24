@@ -7,13 +7,13 @@ let gMeme = {
     lines: [
         {
             txt: 'Now i can sleep better :)',
-            size: 20,
+            size: 30,
             color: 'blue',
             pos: { x: 200, y: 15 }
         },
         {
             txt: 'Awesome!',
-            size: 30,
+            size: 35,
             color: 'white',
             pos: { x: 200, y: 35 }
         }
