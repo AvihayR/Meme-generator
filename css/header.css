@@ -39,6 +39,10 @@ header .top-header .logo {
     background-color: white;
 }
 
+.lower-header.hidden {
+    display: none;
+}
+
 .lower-header .controls .search-bar input {
     width: 10.84210em;
     font-size: 1.1875rem;

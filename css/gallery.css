@@ -1,3 +1,3 @@
-main .gallery {
-    width: 50%;
+main .gallery.hidden {
+    display: none;
 }

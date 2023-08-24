@@ -16,6 +16,7 @@ function onInit() {
     renderMeme()
     updateTextInput()
     addListeners()
+    hideEditor()
 }
 
 function renderMeme() {
@@ -199,4 +200,12 @@ function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+function showEditor() {
+    document.querySelector('main .editor').classList.remove('hidden')
+}
+
+function hideEditor() {
+    document.querySelector('main .editor').classList.add('hidden')
 }

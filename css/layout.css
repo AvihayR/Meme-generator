@@ -16,3 +16,9 @@
 .top-header nav {
     grid-column: 2;
 }
+
+/* Gallery Layout */
+main .gallery {
+    grid-template-columns: repeat(3, minmax(auto, 320px));
+    gap: 10px;
+}
