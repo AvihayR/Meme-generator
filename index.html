@@ -35,28 +35,40 @@
     </header>
     <main>
         <section class="gallery grid"></section>
-        <section class="editor flex column align-center">
+        <section class="editor grid">
             <article class="canvas-container">
                 <canvas width="400" height="400"></canvas>
             </article>
-            <article class="controls-container">
-                <label>Line text: <input type="text" class="line-text" title="Enter text for the selected line"
-                        oninput="onSetLineTxt(this)"></label>
-                <label>Text color: <input type="color" title="Pick a color for the selected line"
-                        oninput="onSetTxtColor(this)"></label>
-                <button title="Increase font" onclick="onChangeTxtSize(2)">A+</button>
-                <button title="Decrease font" onclick="onChangeTxtSize(-2)">A-</button>
-                <button title="Add a new line" onclick="onAddLine()">Add a new line</button>
-                <button title="Switch line" onclick="onSwitchLine()">Switch line</button>
-            </article>
-            <article class=" share-container">
-                <a href="" download="" onclick="onDownloadCanvas(this)">Download</a>
+            <article class="controls-container flex column align-center gap-15">
+                <input type="text" class="line-text" title="Enter text for the selected line"
+                    oninput="onSetLineTxt(this)">
+
+                <div class="navigation-btns">
+                    <button class="btn" title="Switch line" onclick="onSwitchLine()"><img
+                            src="design/up-and-down-opposite-double-arrows-side-by-side.png" alt="" srcset=""></button>
+                    <button class="btn" title="Add a new line" onclick="onAddLine()"><img src="design/add.png" alt=""
+                            srcset=""></button>
+                </div>
+
+                <button class="change-color">
+                    <input type="color" class="btn" title="Pick a color for the selected line"
+                        oninput="onSetTxtColor(this)">
+                    <img src="design/paint-board-and-brush.png">
+                </button>
+
+                <button class="btn" title="Increase font" onclick="onChangeTxtSize(2)"><img
+                        src="design/increase font - icon.png" alt="" srcset=""></button>
+                <button class="btn" title="Decrease font" onclick="onChangeTxtSize(-2)"><img
+                        src="design/decrease font - icon.png" alt="" srcset=""></button>
+
+
+                <a href="" download="" class="btn" onclick="onDownloadCanvas(this)">Download</a>
             </article>
 
         </section>
     </main>
-    <footer>
-
+    <footer class="flex">
+        <p>Footer</p>
     </footer>
 
     <script src="js/util.js"></script>

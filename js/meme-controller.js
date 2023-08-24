@@ -31,7 +31,6 @@ function renderMeme() {
         gCtx.drawImage(gCurrImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
         memeLines.forEach(line => {
-            if (line === getCurrLine()) toggleIndicateLine()
             y += 35
             drawText(line, line.pos)
         })
@@ -46,6 +45,8 @@ function addListeners() {
         resizeCanvas()
         renderMeme()
     })
+
+
 }
 
 function addMouseListeners() {
@@ -100,10 +101,8 @@ function getEvPos(ev) {
 
 function checkIsOnText(pos) {
     const { x, y } = pos
-
     getMeme().lines.forEach(line => {
         const linePos = line.pos
-
         const startX = (linePos.textWidth / 2) - (linePos.textWidth - linePos.x)
         const endX = startX + linePos.textWidth
         const startY = linePos.y - linePos.size / 2
@@ -120,10 +119,6 @@ function onSwitchLine() {
     switchLine()
     renderMeme()
     updateTextInput()
-}
-
-function toggleIndicateLine() {
-    gIndicateLine = !gIndicateLine
 }
 
 function onAddLine() {
@@ -147,9 +142,10 @@ function onSetLineTxt(elInput) {
 }
 
 function updateTextInput() {
-    const txt = getCurrLine().txt
+    const txt = getCurrLine() ? getCurrLine().txt : ''
     document.querySelector('.line-text').value = txt
 }
+
 
 function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }) {
     const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
@@ -159,10 +155,9 @@ function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 
     const textWidth = gCtx.measureText(txt).width
     saveLinePos(line, { x, y, textWidth, size })
 
-    if (!gIndicateLine) return
-    //Draw a box around selected line
-    drawBoxSelectedLine(line)
-    toggleIndicateLine()
+    if (gCurrLine === line) {
+        drawBoxSelectedLine(gCurrLine)
+    }
 }
 
 function drawTextOnCanvas(line, pos) {
@@ -200,6 +195,10 @@ function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+}
+
+function resetCurrLine() {
+    gCurrLine = null
 }
 
 function showEditor() {

@@ -5,3 +5,28 @@ main .editor {
 main .editor.hidden {
     display: none;
 }
+
+main .editor .btn {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.editor button img {
+    width: 30px;
+    height: 30px;
+}
+
+
+main .editor .controls-container>.btn {
+    width: max-content
+}
+
+.editor .controls-container .line-text {
+    /* width: 80%; */
+    padding: 15px;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: none;
+}

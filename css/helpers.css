@@ -17,3 +17,7 @@
 .grid {
     display: grid;
 }
+
+.gap-15 {
+    gap: 15px;
+}

@@ -6,14 +6,9 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'Now i can sleep better :)',
-            size: 30,
-            color: 'blue',
-        },
-        {
-            txt: 'Awesome!',
+            txt: 'Enter text...',
             size: 35,
-            color: 'white',
+            color: 'white'
         }
     ]
 }

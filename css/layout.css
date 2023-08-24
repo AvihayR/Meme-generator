@@ -1,5 +1,6 @@
 .main-layout {
     grid-template-columns: minmax(50px, 1fr) minmax(auto, 980px) minmax(50px, 1fr);
+    grid-template-rows: minmax(70px) minmax(auto, 600px) minmax(auto, 200px);
 }
 
 .main-layout .main-header,
@@ -17,8 +18,22 @@
     grid-column: 2;
 }
 
+.main-layout footer {
+    grid-column: 1/-1;
+}
+
 /* Gallery Layout */
 main .gallery {
     grid-template-columns: repeat(3, minmax(auto, 320px));
     gap: 10px;
+}
+
+/* Editor layout */
+main .editor {
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    column-gap: 20px;
+}
+
+main .editor .canvas-container {
+    grid-column: 1;
 }
