@@ -9,24 +9,28 @@
 </head>
 
 <body class="grid main-layout" onload="onInit()">
-    <header class="main-header grid main-layout">
-        <section class="top-header flex justify-space align-center">
-            <div class="logo"><img src="design/logo.png" alt="Main logo"></div>
-            <nav>
-                <ul>
+    <header class="main-header">
+        <section class="top-header grid main-layout">
+            <nav class="flex justify-space align-center">
+                <div class="logo"><img src="design/logo.png" alt="Main logo"></div>
+                <ul class="main-menu flex">
                     <li><a href="">Gallery</a></li>
                     <li><a href="">About</a></li>
                 </ul>
             </nav>
         </section>
-        <section class="lower-header flex align-center justify-space">
-            <input class="search-bar" type="search">
-            <article class="filter-by-words">
-                <a href="">Funny</a>
-                <a href="">Comics</a>
-                <a href="">Dogs</a>
-                <a href="">More..</a>
-            </article>
+        <section class="lower-header grid main-layout">
+            <div class="controls flex align-center justify-space">
+                <label class="search-bar flex justify-space align-center"> <input type="search"
+                        placeholder="Enter search keyword"> <img src="../design/search-icon.png" alt="Magnifying glass">
+                </label>
+                <article class="filter-by-words flex">
+                    <a href="">Funny</a>
+                    <a href="">Comics</a>
+                    <a href="">Dogs</a>
+                    <a href="">More..</a>
+                </article>
+            </div>
         </section>
     </header>
     <main>

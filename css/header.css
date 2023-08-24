@@ -11,13 +11,51 @@ header .top-header .logo {
 }
 
 .top-header nav a {
+    position: relative;
     padding: 1.4rem 0;
 }
 
-.lower-header .search-bar {
-    height: 1.1875rem;
+.top-header nav .main-menu {
+    gap: 30px;
+}
+
+.top-header .main-menu li a {
+    color: white;
+}
+
+.top-header .main-menu li a.selected {
+    color: black;
+    box-shadow: 0 -3px inset black;
+}
+
+.top-header .main-menu li:first-of-type a::after {
+    position: absolute;
+    content: "|";
+    right: -15px;
+    color: rgb(128, 128, 128);
+}
+
+.lower-header {
+    background-color: white;
+}
+
+.lower-header .controls .search-bar input {
+    width: 10.84210em;
+    font-size: 1.1875rem;
+    border: none;
+    margin-inline-end: 5px;
+}
+
+.controls .search-bar img {
+    width: 1em;
+    height: 1em;
+}
+
+.lower-header .filter-by-words {
+    font-size: 1.1875rem;
+    gap: 1.5789em;
 }
 
 .lower-header .filter-by-words a {
-    padding: 2.4375em 0;
+    padding: 1.57894em 0;
 }
