@@ -1,3 +1,8 @@
+@import url('vars.css');
+@import url('base.css');
+
 @import url('gallery.css');
 @import url('canvas.css');
-@import url('main.css');
+@import url('header.css');
+@import url('mq.css');
+@import url('helpers.css');

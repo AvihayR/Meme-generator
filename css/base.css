@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: montserrat, sans-serif;
+}
+
+body {
+    background-color: var(--main-bg);
+}
+
+ul {
+    all: unset;
+}
+
+li {
+    display: inline;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+}
+
+img {
+    width: 100%;
+}

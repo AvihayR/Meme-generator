@@ -1,0 +1,11 @@
+header .top-header {
+    font-size: 1.1875em;
+}
+
+header .top-header .logo {
+    width: 8.3125rem;
+}
+
+.top-header nav a {
+    padding: 1.4rem 0;
+}
