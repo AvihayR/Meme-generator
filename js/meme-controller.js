@@ -101,7 +101,9 @@ function getEvPos(ev) {
 
 function checkIsOnText(pos) {
     const { x, y } = pos
-    getMeme().lines.forEach(line => {
+    const memeLines = getMeme().lines
+    for (let i = 0; i < memeLines.length; i++) {
+        const line = memeLines[i]
         const linePos = line.pos
         const startX = (linePos.textWidth / 2) - (linePos.textWidth - linePos.x)
         const endX = startX + linePos.textWidth
@@ -111,10 +113,11 @@ function checkIsOnText(pos) {
         if (x >= startX && x <= endX && y >= startY && y <= endY) {
             gIsOnText = true
             gCurrLine = line
+            return
         } else {
             gCurrLine = null
         }
-    })
+    }
 }
 
 function onSwitchLine() {
