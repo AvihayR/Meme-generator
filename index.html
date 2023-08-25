@@ -12,10 +12,11 @@
     <header class="main-header">
         <section class="top-header grid main-layout">
             <nav class="flex justify-space align-center">
-                <div class="logo"><img src="design/logo.png" alt="Main logo"></div>
+                <div class="logo" onclick="goToGallery()"><img src="design/logo.png" alt="Main logo"></div>
                 <ul class="main-menu flex">
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="" class="gallery-link" onclick="goToGallery(event); toggleMainMenu()">Gallery</a></li>
+                    <li><a href="" class="about-link" onclick="goToGallery(event); toggleMainMenu()">About</a></li>
+                    <li><button class="btn" onclick="onSelectRandomImg(); toggleMainMenu()">Im flexible!</button></li>
                     <button class="btn close-btn" onclick="toggleMainMenu()">X</button>
                 </ul>
                 <button class="btn hamburger" onclick="toggleMainMenu()">☰</button>

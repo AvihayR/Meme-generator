@@ -1,3 +1,12 @@
 main .gallery.hidden {
     display: none;
 }
+
+main .gallery img {
+    cursor: pointer;
+    transition: opacity 0.5s;
+}
+
+main .gallery img:hover {
+    opacity: 0.7;
+}

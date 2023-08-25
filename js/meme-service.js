@@ -1,9 +1,8 @@
 'use strict'
-let gImgs = []
+let gImgs = [{ id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat'] }]
 
 let gMeme = {
-    selectedImgId: 3,
-    selectedLineIdx: 0,
+    selectedImgId: 16,
     lines: [
         {
             txt: 'Enter text...',

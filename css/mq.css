@@ -9,10 +9,6 @@
         margin-inline: 5px;
     }
 
-    .top-header {
-        padding: 20px 0;
-    }
-
     .top-header nav .btn.hamburger {
         display: block;
     }
@@ -60,6 +56,7 @@
 
     nav .main-menu.open li {
         width: 100%;
+        text-align: center;
     }
 
     nav .main-menu.open li a {
@@ -103,6 +100,7 @@
 
     .top-header nav .main-menu {
         display: flex;
+        align-items: center;
     }
 
     .lower-header .controls .filter-by-words {

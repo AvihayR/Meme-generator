@@ -7,6 +7,7 @@ header .top-header {
 
 header .top-header .logo {
     width: 8.3125rem;
+    cursor: pointer;
 }
 
 .top-header nav a {
@@ -40,6 +41,22 @@ header .top-header .logo {
     content: "|";
     right: -15px;
     color: rgb(128, 128, 128);
+}
+
+.top-header .btn {
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    color: orangered;
+    background-color: whitesmoke;
+    margin-block: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.top-header .btn:hover {
+    color: whitesmoke;
+    background-color: orangered;
 }
 
 .lower-header {
