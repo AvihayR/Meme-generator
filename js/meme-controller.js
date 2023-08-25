@@ -111,6 +111,8 @@ function checkIsOnText(pos) {
         if (x >= startX && x <= endX && y >= startY && y <= endY) {
             gIsOnText = true
             gCurrLine = line
+        } else {
+            gCurrLine = null
         }
     })
 }
@@ -163,10 +165,10 @@ function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 
 function drawTextOnCanvas(line, pos) {
     const { txt, size, color } = line
     const { x, y } = pos
-    gCtx.lineWidth = 1
-    gCtx.strokeStyle = '#242424'
+    gCtx.lineWidth = 1.5
+    gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
-    gCtx.font = `bold ${size}px Trebuchet MS`
+    gCtx.font = `${size}px Impact`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -178,7 +180,7 @@ function drawBoxSelectedLine(line) {
     const { x, y, textWidth, size } = line.pos
     gCtx.lineWidth = 1.5
     gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
-    gCtx.strokeStyle = '#454545'
+    gCtx.strokeStyle = '#909090'
     gCtx.stroke()
 }
 
