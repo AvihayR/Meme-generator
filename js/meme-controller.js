@@ -115,7 +115,7 @@ function checkIsOnText(pos) {
             gCurrLine = line
             return
         } else {
-            gCurrLine = null
+            resetCurrLine()
         }
     }
 }
@@ -153,7 +153,7 @@ function updateTextInput() {
 
 
 function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }) {
-    const { txt = 'Insert text here', size = 20, color = '#FFFFFF' } = line
+    const { txt = 'Insert text here', size = 20 } = line
     const { x, y } = pos
 
     drawTextOnCanvas(line, pos)
@@ -166,12 +166,13 @@ function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 
 }
 
 function drawTextOnCanvas(line, pos) {
-    const { txt, size, color } = line
+    let { txt, size, color, font } = line
     const { x, y } = pos
+    font = (!font) ? 'Impact' : font
     gCtx.lineWidth = 1.5
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Impact`
+    gCtx.font = `${size}px ${font}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -216,4 +217,9 @@ function hideEditor() {
 
 function toggleMainMenu() {
     document.querySelector('.top-header nav .main-menu').classList.toggle('open')
+}
+
+function onChangeFont(ev) {
+    gCurrLine.font = ev.target.value
+    renderMeme()
 }
