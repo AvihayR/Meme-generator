@@ -1,1 +1,7 @@
-footer {}
+footer {
+    /* margin-block-start: 15px;
+    min-height: 50px; */
+    color: whitesmoke;
+    background: rgb(255, 68, 68);
+    background: linear-gradient(-90deg, rgba(255, 68, 68, 1) 0%, rgba(255, 87, 0, 0.8981967787114846) 63%, rgba(255, 203, 74, 0.9430199430199431) 100%);
+}
