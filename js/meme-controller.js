@@ -221,6 +221,11 @@ function toggleMainMenu() {
     document.querySelector('.top-header nav .main-menu').classList.toggle('open')
 }
 
+function onRemoveLine() {
+    gMeme.lines = gMeme.lines.filter(line => line !== gCurrLine)
+    renderMeme()
+}
+
 function onAlignText(elBtn) {
     gCurrLine.align = elBtn.value
     renderMeme()
