@@ -9,6 +9,7 @@ html {
 
 body {
     background-color: var(--stone);
+    min-height: 100vh;
 }
 
 ul {

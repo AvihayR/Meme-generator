@@ -208,3 +208,7 @@ function showEditor() {
 function hideEditor() {
     document.querySelector('main .editor').classList.add('hidden')
 }
+
+function toggleMainMenu() {
+    document.querySelector('.top-header nav .main-menu').classList.toggle('open')
+}

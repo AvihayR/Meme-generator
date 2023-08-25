@@ -1,6 +1,5 @@
 .main-layout {
     grid-template-columns: minmax(50px, 1fr) minmax(auto, 980px) minmax(50px, 1fr);
-    grid-template-rows: minmax(70px) minmax(auto, 600px) minmax(auto, 200px);
 }
 
 .main-layout .main-header,
@@ -30,7 +29,7 @@ main .gallery {
 
 /* Editor layout */
 main .editor {
-    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-template-columns: 2fr 1fr;
     column-gap: 20px;
 }
 

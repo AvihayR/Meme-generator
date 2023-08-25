@@ -15,6 +15,10 @@ header .top-header .logo {
     padding: 1.4rem 0;
 }
 
+.top-header nav .btn.hamburger {
+    display: none;
+}
+
 .top-header nav .main-menu {
     gap: 30px;
 }

@@ -1,1 +1,79 @@
-/*  */
+/* MOBILE ONLY */
+@media (max-width: 660px) {
+    .main-layout {
+        grid-template-columns: minmax(20px, 1fr) minmax(auto, 980px) minmax(20px, 1fr);
+    }
+
+    .top-header {
+        padding: 20px 0;
+    }
+
+    .top-header nav .btn.hamburger {
+        display: block;
+    }
+
+    .top-header nav .main-menu {
+        position: absolute;
+        visibility: hidden;
+        top: -10rem;
+        right: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        background-color: orangered;
+        transition: 0.4s;
+    }
+
+    .top-header nav .main-menu.open {
+        visibility: visible;
+        top: 0;
+    }
+
+    .top-header .main-menu li:first-of-type a::after {
+        content: "";
+    }
+
+    nav .main-menu.open li {
+        width: 100%;
+    }
+
+    nav .main-menu.open li a {
+        width: 100%;
+        text-align: center;
+        border-block-end: 1px solid white;
+        transition: color 0.2s;
+    }
+
+    nav .main-menu.open li a:hover {
+        color: black;
+    }
+
+    .lower-header .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-block-start: 1rem;
+    }
+
+    .lower-header .controls .filter-by-words {
+        margin-inline-start: 15px;
+    }
+}
+
+/* SMALL */
+@media (min-width: 660px) {
+    .top-header nav .main-menu {
+        display: flex;
+    }
+
+    .lower-header .controls .filter-by-words {
+        margin-inline-start: 25px;
+    }
+}
+
+/* MEDIUM */
+@media (min-width: 800px) {}
+
+/* LARGE */
+@media (min-width: 1120px) {}
