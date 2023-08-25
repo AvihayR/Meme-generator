@@ -7,6 +7,12 @@ main .editor .btn {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+main .editor .btn:hover {
+    background-color: #ff5700;
+    box-shadow: 2px 2px 10px rgb(255, 108, 108);
 }
 
 .editor button img {
@@ -28,6 +34,11 @@ main .editor .controls-container>.btn {
 
 .editor .controls-container select.font-family {
     font-size: 1.2em;
+}
+
+.editor .controls-container .btn.download {
+    font-size: 1.2em;
+    padding: 5px;
 }
 
 button.change-color {

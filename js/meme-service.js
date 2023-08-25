@@ -1,5 +1,5 @@
 'use strict'
-let gImgs = [{ id: 3, url: 'img/3.jpg', keywords: ['funny', 'cat'] }]
+let gImgs = []
 
 let gMeme = {
     selectedImgId: 3,

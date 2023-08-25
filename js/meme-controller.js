@@ -13,7 +13,7 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
     resizeCanvas()
-    renderMeme()
+    // renderMeme()
     updateTextInput()
     addListeners()
     hideEditor()
@@ -184,9 +184,9 @@ function drawTextOnCanvas(line, pos) {
 
 function drawBoxSelectedLine(line) {
     const { x, y, textWidth, size } = line.pos
-    gCtx.lineWidth = 1.5
-    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 25), size)
-    gCtx.strokeStyle = '#909090'
+    gCtx.lineWidth = 2
+    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
+    gCtx.strokeStyle = '#E8E8E8'
     gCtx.stroke()
 }
 
