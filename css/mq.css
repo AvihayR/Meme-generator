@@ -27,8 +27,25 @@
         flex-direction: column;
         align-items: center;
         gap: 0;
-        background-color: orangered;
+        background: rgb(255, 68, 68);
+        background: linear-gradient(5deg, rgba(255, 68, 68, 1) 0%, rgba(255, 87, 0, 1) 63%, rgba(255, 203, 74, 1) 100%);
         transition: 0.4s;
+    }
+
+    .top-header nav .main-menu .close-btn {
+        all: unset;
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        padding: 5px 10px;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    nav .main-menu .close-btn:hover {
+        color: black;
     }
 
     .top-header nav .main-menu.open {
