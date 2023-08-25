@@ -26,7 +26,7 @@ main .editor .controls-container>.btn {
     border: none;
 }
 
-.editor .controls-container select.font-size {
+.editor .controls-container select.font-family {
     font-size: 1.2em;
 }
 

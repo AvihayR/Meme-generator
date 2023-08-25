@@ -65,13 +65,24 @@
                             src="design/decrease font - icon.png" alt="" srcset=""></button>
                 </div>
 
-                <select class="btn font-size" oninput="onChangeFont(event)">
+                <select title="Select font family" class="btn font-family" oninput="onChangeFont(event)">
                     <option value="">Font</option>
                     <option value="Arial">Arial</option>
                     <option value="Calibri">Calibri</option>
                     <option value="Impact">Impact</option>
                     <option value="Comic Sans MS">Comic</option>
                 </select>
+
+                <div class="align-text-container">
+                    <button value="right" onclick="onAlignText(this)" class="btn align-left"><img
+                            src="design/align-to-left.png" alt="Align text right"></button>
+
+                    <button value="center" onclick="onAlignText(this)" class="btn align-center"><img
+                            src="design/center-text-alignment.png" alt="Align text middle"></button>
+
+                    <button value="left" onclick="onAlignText(this)" class="btn align-right"><img
+                            src="design/align-to-right.png" alt="Align text left"></button>
+                </div>
 
                 <a href="" download="" class="btn" onclick="onDownloadCanvas(this)">Download</a>
             </article>

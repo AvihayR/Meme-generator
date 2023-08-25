@@ -166,14 +166,16 @@ function drawText(line, pos = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 
 }
 
 function drawTextOnCanvas(line, pos) {
-    let { txt, size, color, font } = line
+    let { txt, size, color, font, align } = line
     const { x, y } = pos
     font = (!font) ? 'Impact' : font
+    align = (!align) ? 'center' : align
+
     gCtx.lineWidth = 1.5
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = color
     gCtx.font = `${size}px ${font}`
-    gCtx.textAlign = 'center'
+    gCtx.textAlign = align
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, x, y)
@@ -183,7 +185,7 @@ function drawTextOnCanvas(line, pos) {
 function drawBoxSelectedLine(line) {
     const { x, y, textWidth, size } = line.pos
     gCtx.lineWidth = 1.5
-    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 10), size)
+    gCtx.rect((x - textWidth / 2 - 5), (y - size / 2), (textWidth + 25), size)
     gCtx.strokeStyle = '#909090'
     gCtx.stroke()
 }
@@ -217,6 +219,11 @@ function hideEditor() {
 
 function toggleMainMenu() {
     document.querySelector('.top-header nav .main-menu').classList.toggle('open')
+}
+
+function onAlignText(elBtn) {
+    gCurrLine.align = elBtn.value
+    renderMeme()
 }
 
 function onChangeFont(ev) {
