@@ -3,7 +3,6 @@ header .top-header {
 
     background: rgb(255, 68, 68);
     background: linear-gradient(90deg, rgba(255, 68, 68, 1) 0%, rgba(255, 87, 0, 0.8981967787114846) 63%, rgba(255, 203, 74, 0.9430199430199431) 100%);
-
 }
 
 header .top-header .logo {
@@ -21,6 +20,10 @@ header .top-header .logo {
 
 .top-header nav .main-menu {
     gap: 30px;
+}
+
+.top-header nav .main-menu .close-btn {
+    display: none;
 }
 
 .top-header .main-menu li a {
