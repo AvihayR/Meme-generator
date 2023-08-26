@@ -1,8 +1,8 @@
 'use strict'
 let imgId = 1
-let gImgs = [{ id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat'] }]
+let gImgs = [{ id: 18, url: 'img/18.jpg', keywords: ['funny'] }]
 let gMeme = {
-    selectedImgId: 16,
+    selectedImgId: 18,
     lines: [
         {
             txt: 'Enter text...',
@@ -84,14 +84,32 @@ function findImg(imgId) {
     return gImgs.find(img => img.id === parseInt(imgId))
 }
 
-function getImgs() {
-    return gImgs
+function getImgs(filterBy = '') {
+    return gImgs.filter(img => img.keywords.some(keyword => keyword.includes(filterBy)))
 }
 
 function createImgs() {
-    for (let i = 1; i < 18; i++) {
-        createImg(`img/${i}.jpg`)
-    }
+    createImg(`img/${1}.jpg`)
+    createImg(`img/${2}.jpg`, ['funny', 'dog'])
+    createImg(`img/${3}.jpg`, ['funny', 'dog', 'baby'])
+    createImg(`img/${4}.jpg`, ['funny', 'cat'])
+    createImg(`img/${5}.jpg`, ['funny', 'baby'])
+    createImg(`img/${6}.jpg`, ['funny',])
+    createImg(`img/${7}.jpg`, ['funny', 'baby'])
+    createImg(`img/${8}.jpg`, ['funny'])
+    createImg(`img/${9}.jpg`, ['funny', 'baby'])
+    createImg(`img/${10}.jpg`, ['funny'])
+    createImg(`img/${11}.jpg`, ['funny'])
+    createImg(`img/${12}.jpg`, ['funny'])
+    createImg(`img/${13}.jpg`, ['funny'])
+    createImg(`img/${14}.jpg`, ['funny', 'bad'])
+    createImg(`img/${15}.jpg`, ['funny', 'bad'])
+    createImg(`img/${16}.jpg`, ['funny'])
+    createImg(`img/${17}.jpg`, ['funny', 'bad'])
+
+    // for (let i = 1; i < 18; i++) {
+    //     createImg(`img/${i}.jpg`)
+    // }
 }
 
 function createImg(url, keywords = ['funny']) {

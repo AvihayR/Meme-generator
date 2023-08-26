@@ -25,8 +25,18 @@
         </section>
         <section class="lower-header grid main-layout">
             <div class="controls flex align-center justify-space">
-                <label class="search-bar flex justify-space align-center"> <input type="search"
-                        placeholder="Enter search keyword"> <img src="design/search-icon.png" alt="Magnifying glass">
+                <label class="search-bar flex justify-space align-center">
+                    <input class="filter-by" list="search-keywords" placeholder="Enter search keyword"
+                        oninput="onFilterGallery(this)">
+                    <img src="design/search-icon.png" alt="Magnifying glass">
+                    <datalist id="search-keywords">
+                        <option value="Bad">
+                        <option value="Baby">
+                        <option value="Cat">
+                        <option value="Dog">
+                        <option value="Funny">
+                    </datalist>
+
                 </label>
                 <article class="filter-by-words flex">
                     <a href="">Funny</a>
@@ -91,8 +101,11 @@
                     <button value="left" onclick="onAlignText(this)" class="btn align-right"><img
                             src="design/align-to-right.png" alt="Align text left"></button>
                 </div>
-                <a href="" class="btn fa save" onclick="onSaveMemeToStorage(event)"></a>
-                <a href="" download="" class="btn fa download" onclick="onDownloadCanvas(this)"></a>
+                <div class="share-container">
+                    <a href="" class="btn fa save" onclick="onSaveMemeToStorage(event)"></a>
+                    <a href="" download="" class="btn fa download" onclick="onDownloadCanvas(this)"></a>
+                </div>
+
             </article>
 
         </section>

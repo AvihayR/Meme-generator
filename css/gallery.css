@@ -1,3 +1,7 @@
+main .gallery {
+    margin-block: 15px;
+}
+
 main .gallery.hidden {
     display: none;
 }

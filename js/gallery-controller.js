@@ -1,11 +1,19 @@
 'use strict'
 
-function renderGallery() {
+function renderGallery(filterBy) {
     const elGallery = document.querySelector('.gallery')
     let strHTML = ''
-    getImgs().forEach(img => strHTML += onRenderImg(img))
+    getImgs(filterBy).forEach(img => strHTML += onRenderImg(img))
 
     elGallery.innerHTML = strHTML
+}
+
+function resetFilterBy() {
+    document.querySelector('input.filter-by').value = ''
+}
+
+function onFilterGallery(elSearch) {
+    renderGallery(elSearch.value.toLowerCase())
 }
 
 function onSelectRandomImg() {
@@ -31,7 +39,9 @@ function goToGallery(ev) {
     if (ev) ev.preventDefault()
     hideEditor()
     hideSavedPage()
+    resetFilterBy()
     showGallery()
+    renderGallery()
 }
 
 function hideGallery() {
