@@ -37,6 +37,16 @@ function saveLinePos(line, pos) {
     line.pos = pos
 }
 
+function resetLines() {
+    gMeme.lines = [
+        {
+            txt: 'Enter text...',
+            size: 35,
+            color: 'white'
+        }
+    ]
+}
+
 function syncSavedMemes() {
     const memeDB = loadMemesFromStorage()
     gSavedMemes = !memeDB ? [] : memeDB

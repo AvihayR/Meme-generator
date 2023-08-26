@@ -51,3 +51,8 @@ button.change-color {
     position: absolute;
     right: 15px;
 }
+
+.editor .stickers-container .sticker {
+    font-size: 1.5em;
+    width: 42px;
+}

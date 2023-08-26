@@ -238,3 +238,8 @@ function onChangeFont(ev) {
     gCurrLine.font = ev.target.value
     renderMeme()
 }
+
+function onAddSticker(elBtn) {
+    addLine(elBtn.textContent)
+    renderMeme()
+}

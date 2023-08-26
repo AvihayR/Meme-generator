@@ -70,26 +70,17 @@
                             alt="Remove line" srcset=""></button>
                 </div>
 
-                <button class="change-color btn">
-                    <input type="color" class="color-picker btn" title="Pick a color for the selected line"
-                        oninput="onSetTxtColor(this)">
-                    <img src="design/paint-board-and-brush.png" class="color-picker-img">
-                </button>
-
-                <div class="size-btns">
+                <div class="text-btns flex gap-10">
+                    <button class="change-color btn">
+                        <input type="color" class="color-picker btn" title="Pick a color for the selected line"
+                            oninput="onSetTxtColor(this)">
+                        <img src="design/paint-board-and-brush.png" class="color-picker-img">
+                    </button>
                     <button class="btn" title="Increase font" onclick="onChangeTxtSize(2)"><img
                             src="design/increase font - icon.png" alt="" srcset=""></button>
                     <button class="btn" title="Decrease font" onclick="onChangeTxtSize(-2)"><img
                             src="design/decrease font - icon.png" alt="" srcset=""></button>
                 </div>
-
-                <select title="Select font family" class="btn font-family" oninput="onChangeFont(event)">
-                    <option value="">Font</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Calibri">Calibri</option>
-                    <option value="Impact">Impact</option>
-                    <option value="Comic Sans MS">Comic</option>
-                </select>
 
                 <div class="align-text-container">
                     <button value="right" onclick="onAlignText(this)" class="btn align-left"><img
@@ -101,6 +92,22 @@
                     <button value="left" onclick="onAlignText(this)" class="btn align-right"><img
                             src="design/align-to-right.png" alt="Align text left"></button>
                 </div>
+
+                <select title="Select font family" class="btn font-family" oninput="onChangeFont(event)">
+                    <option value="">Font</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Comic Sans MS">Comic</option>
+                </select>
+
+                <div class="stickers-container">
+                    <button class="btn sticker" onclick="onAddSticker(this)">💧</button>
+                    <button class="btn sticker" onclick="onAddSticker(this)">👑</button>
+                    <button class="btn sticker" onclick="onAddSticker(this)">🖤</button>
+                    <button class="btn sticker" onclick="onAddSticker(this)">💥</button>
+                </div>
+
                 <div class="share-container">
                     <a href="" class="btn fa save" onclick="onSaveMemeToStorage(event)"></a>
                     <a href="" download="" class="btn fa download" onclick="onDownloadCanvas(this)"></a>

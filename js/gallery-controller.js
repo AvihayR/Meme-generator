@@ -27,6 +27,7 @@ function onImgSelect(elImg) {
     hideGallery()
     hideSavedPage()
     showEditor()
+    resetLines()
     renderMeme()
 }
 
