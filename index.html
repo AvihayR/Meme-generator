@@ -15,7 +15,7 @@
                 <div class="logo" onclick="goToGallery()"><img src="design/logo.png" alt="Main logo"></div>
                 <ul class="main-menu flex">
                     <li><a href="" class="gallery-link" onclick="goToGallery(event); toggleMainMenu()">Gallery</a></li>
-                    <li><a href="" class="saved-memes-link" onclick="goToGallery(event); toggleMainMenu()">Saved</a>
+                    <li><a href="" class="saved-memes-link" onclick="onShowSavedPage(event); toggleMainMenu()">Saved</a>
                     </li>
                     <li><button class="btn" onclick="onSelectRandomImg(); toggleMainMenu()">Im flexible!</button></li>
                     <button class="btn close-btn" onclick="toggleMainMenu()">X</button>
@@ -38,34 +38,7 @@
         </section>
     </header>
     <main>
-        <section class="saved-memes grid">
-            <article class="card">
-                <h3>Saved meme</h3>
-                <img src="" alt="" class="preview">
-                <p>Lorem, ipsum.</p>
-            </article>
-
-            <article class="card">
-                <h3>Saved meme</h3>
-                <img src="" alt="">
-                <p>Lorem, ipsum.</p>
-            </article>
-
-            <article class="card">
-                <h3>Saved meme</h3>
-                <img src="" alt="">
-                <p>Lorem, ipsum.</p>
-            </article>
-            <article class="card">
-                <h3>Saved meme</h3>
-                <img src="" alt="">
-                <p>Lorem, ipsum.</p>
-            </article>
-            <article class="card">
-                <h3>Saved meme</h3>
-                <img src="" alt="">
-                <p>Lorem, ipsum.</p>
-            </article>
+        <section class="saved-memes grid hidden">
         </section>
         <section class="gallery grid"></section>
         <section class="editor grid">

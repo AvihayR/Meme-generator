@@ -17,6 +17,7 @@ function onSelectRandomImg() {
 function onImgSelect(elImg) {
     setImg(elImg.dataset.imgId)
     hideGallery()
+    hideSavedPage()
     showEditor()
     renderMeme()
 }

@@ -1,3 +1,25 @@
 main .saved-memes .card {
     text-align: center;
 }
+
+main .saved-memes.hidden {
+    display: none;
+}
+
+main .saved-memes .card {
+    background: rgb(255, 68, 68);
+    background: linear-gradient(-180deg, rgba(255, 68, 68, 1) 0%, rgba(255, 87, 0, 0.8981967787114846) 63%, rgba(255, 203, 74, 0.9430199430199431) 100%);
+    color: whitesmoke;
+
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px orangered;
+    cursor: pointer;
+    transition: padding 0.2s;
+}
+
+main .saved-memes .card:hover {
+    padding: 0;
+    box-shadow: 3px 3px 10px orangered;
+}

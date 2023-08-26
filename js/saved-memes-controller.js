@@ -22,10 +22,9 @@ function createMemeCard(meme) {
 function chooseSavedMeme(elArticle) {
     const memeId = elArticle.dataset.memeId
     const meme = gSavedMemes.filter(meme => meme.id === memeId)[0]
-    // syncSavedMemes()
-    // console.log(meme)
+    syncSavedMemes()
     setMeme(meme)
-    // setImg(meme.selectedImgId)
+    hideSavedPage()
     hideGallery()
     showEditor()
     renderMeme()
@@ -37,7 +36,18 @@ function createImgPreview() {
     return imgUrl
 }
 
-function onShowSaved() {
+function onShowSavedPage(ev) {
+    ev.preventDefault()
     hideEditor()
     hideGallery()
+    showSavedPage()
+    renderSavedMemes()
+}
+
+function hideSavedPage() {
+    document.querySelector('.saved-memes').classList.add('hidden')
+}
+
+function showSavedPage() {
+    document.querySelector('.saved-memes').classList.remove('hidden')
 }
