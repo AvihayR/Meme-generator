@@ -30,6 +30,7 @@ function onRenderImg(img) {
 function goToGallery(ev) {
     if (ev) ev.preventDefault()
     hideEditor()
+    hideSavedPage()
     showGallery()
 }
 

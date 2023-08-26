@@ -3,8 +3,12 @@
 function renderSavedMemes() {
     const elSavedMemes = document.querySelector('.saved-memes')
     let strHTML = ''
-    gSavedMemes.forEach(meme => { strHTML += createMemeCard(meme) })
-    elSavedMemes.innerHTML = strHTML
+    if (!gSavedMemes || !gSavedMemes.length) {
+        elSavedMemes.innerHTML = '<span class"empty-saved-memes"> No saved memes yet, Try saving one!</span>'
+    } else {
+        gSavedMemes.forEach(meme => { strHTML += createMemeCard(meme) })
+        elSavedMemes.innerHTML = strHTML
+    }
 }
 
 function createMemeCard(meme) {

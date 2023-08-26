@@ -1,9 +1,18 @@
-main .saved-memes .card {
-    text-align: center;
+main .saved-memes {
+    margin-block: 15px;
 }
 
 main .saved-memes.hidden {
     display: none;
+}
+
+main .saved-memes span.empty-saved-memes {
+    grid-column: 1/-1;
+    text-align: center;
+}
+
+main .saved-memes .card {
+    text-align: center;
 }
 
 main .saved-memes .card {
