@@ -22,7 +22,8 @@ function createMemeCard(meme) {
 function chooseSavedMeme(elArticle) {
     const memeId = elArticle.dataset.memeId
     const meme = gSavedMemes.filter(meme => meme.id === memeId)[0]
-    console.log(meme)
+    // syncSavedMemes()
+    // console.log(meme)
     setMeme(meme)
     // setImg(meme.selectedImgId)
     hideGallery()

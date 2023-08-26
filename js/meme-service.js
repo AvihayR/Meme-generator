@@ -47,9 +47,10 @@ function loadMemesFromStorage() {
 }
 
 function saveMemeToStorage() {
-    gMeme.imgPreview = createImgPreview()
-    gMeme.id = makeId(4)
-    gSavedMemes.push(gMeme)
+    const clonedMeme = JSON.parse(JSON.stringify(gMeme))
+    clonedMeme.imgPreview = createImgPreview()
+    clonedMeme.id = makeId(4)
+    gSavedMemes.push(clonedMeme)
     saveToStorage(MEMES_STORAGE_KEY, gSavedMemes)
 }
 
