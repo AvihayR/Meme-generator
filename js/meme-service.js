@@ -1,6 +1,6 @@
 'use strict'
+let imgId = 1
 let gImgs = [{ id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat'] }]
-
 let gMeme = {
     selectedImgId: 16,
     lines: [
@@ -11,12 +11,19 @@ let gMeme = {
         }
     ]
 }
-
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gLineIdx = 0
 let gCurrLine = gMeme.lines[gLineIdx]
-createImgs()
+let gSavedMemes
+const MEMES_STORAGE_KEY = 'memesDB'
 
+createImgs()
+syncSavedMemes()
+
+
+function setMeme(meme) {
+    gMeme = meme
+}
 
 function getMeme() {
     return gMeme
@@ -28,6 +35,22 @@ function getCurrLine() {
 
 function saveLinePos(line, pos) {
     line.pos = pos
+}
+
+function syncSavedMemes() {
+    const memeDB = loadMemesFromStorage()
+    gSavedMemes = !memeDB ? [] : memeDB
+}
+
+function loadMemesFromStorage() {
+    return loadFromStorage(MEMES_STORAGE_KEY)
+}
+
+function saveMemeToStorage() {
+    gMeme.imgPreview = createImgPreview()
+    gMeme.id = makeId(4)
+    gSavedMemes.push(gMeme)
+    saveToStorage(MEMES_STORAGE_KEY, gSavedMemes)
 }
 
 function switchLine() {
@@ -57,7 +80,7 @@ function setImg(id) {
 }
 
 function findImg(imgId) {
-    return gImgs.find(img => img.id === imgId)
+    return gImgs.find(img => img.id === parseInt(imgId))
 }
 
 function getImgs() {
@@ -71,7 +94,7 @@ function createImgs() {
 }
 
 function createImg(url, keywords = ['funny']) {
-    const img = { id: makeId(), url, keywords }
+    const img = { id: imgId++, url, keywords }
     gImgs.push(img)
 }
 

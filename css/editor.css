@@ -36,11 +36,6 @@ main .editor .controls-container>.btn {
     font-size: 1.2em;
 }
 
-.editor .controls-container .btn.download {
-    font-size: 1.2em;
-    padding: 5px;
-}
-
 button.change-color {
     position: relative;
 }

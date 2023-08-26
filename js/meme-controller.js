@@ -4,7 +4,6 @@ let gCtx
 let gCurrImg
 let gIndicateLine = false
 let gIsOnText = false
-// let gSelectedText
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
@@ -13,7 +12,6 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
     resizeCanvas()
-    // renderMeme()
     updateTextInput()
     addListeners()
     hideEditor()
@@ -197,6 +195,11 @@ function loadImgToCanvas(src) {
 
 function onDownloadCanvas(elLink) {
     elLink.href = gElCanvas.toDataURL('image/jpeg')
+}
+
+function onSaveMemeToStorage(ev) {
+    ev.preventDefault()
+    saveMemeToStorage()
 }
 
 function resizeCanvas() {

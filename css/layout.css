@@ -36,3 +36,9 @@ main .editor {
 main .editor .canvas-container {
     grid-column: 1;
 }
+
+/* Saved-memes layout */
+main .saved-memes {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-auto-flow: column; */
+}

@@ -2,3 +2,22 @@
     font-family: montserrat;
     src: url(../fonts/Montserrat-Regular.ttf)
 }
+
+@font-face {
+    font-family: fa;
+    src: url(../fonts/fa-solid-900.woff2)
+}
+
+.fa::before {
+    font-family: fa;
+    font-size: 1.8rem;
+    padding: 5px;
+}
+
+.fa.save::before {
+    content: '\f0c7';
+}
+
+.fa.download::before {
+    content: '\f019';
+}
