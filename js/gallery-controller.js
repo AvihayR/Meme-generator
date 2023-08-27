@@ -26,10 +26,11 @@ function onImgSelect(elImg) {
     setImg(elImg.dataset.imgId)
     hideGallery()
     hideSavedPage()
-    resizeCanvas()
     showEditor()
     resetLines()
     renderMeme()
+    setDefaultLine()
+    document.querySelector('.line-text').focus()
 }
 
 function onRenderImg(img) {

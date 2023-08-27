@@ -127,6 +127,14 @@ function createImg(url, keywords = ['funny']) {
     gImgs.push(img)
 }
 
+function setDefaultLine() {
+    gCurrLine = gMeme.lines[0]
+}
+
+function resetCurrLine() {
+    gCurrLine = null
+}
+
 function setLineTxt(txt) {
     gCurrLine.txt = txt
 }

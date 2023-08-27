@@ -140,13 +140,19 @@ function onSetTxtColor(elColor) {
 }
 
 function onSetLineTxt(elInput) {
+    if (getCurrLine() === null) setDefaultLine()
+
     setLineTxt(elInput.value)
     renderMeme()
 }
 
 function updateTextInput() {
+    const elInput = document.querySelector('.line-text')
     const txt = getCurrLine() ? getCurrLine().txt : ''
-    document.querySelector('.line-text').value = txt
+
+    elInput.placeholder = txt
+    if (elInput.value) elInput.value = ''
+
 }
 
 
@@ -210,10 +216,6 @@ function resizeCanvas() {
 
     gElCanvas.width = width
     gElCanvas.height = width
-}
-
-function resetCurrLine() {
-    gCurrLine = null
 }
 
 function showEditor() {

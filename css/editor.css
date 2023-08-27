@@ -11,6 +11,7 @@ main .editor .btn {
 }
 
 main .editor .btn:hover {
+    text-align: center;
     background-color: #ff5700;
     box-shadow: 2px 2px 10px rgb(255, 108, 108);
 }
