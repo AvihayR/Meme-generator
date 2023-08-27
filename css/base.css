@@ -45,7 +45,7 @@ img {
     text-align: center;
     color: orangered;
     border: 1px solid #363636;
-    border-radius: 15px;
+    border-radius: 0.85227em;
     box-shadow: 4px 4px 40px #363636;
     transition: top 0.3s ease-in-out;
 }

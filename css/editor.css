@@ -4,7 +4,7 @@ main .editor.hidden {
 
 main .editor .btn {
     background-color: whitesmoke;
-    border-radius: 5px;
+    border-radius: 0.4500112em;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -17,8 +17,8 @@ main .editor .btn:hover {
 }
 
 .editor button img {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
 }
 
 
@@ -27,9 +27,9 @@ main .editor .controls-container>.btn {
 }
 
 .editor .controls-container .line-text {
-    padding: 15px;
     font-size: 1.25rem;
-    border-radius: 10px;
+    padding: 0.75em;
+    border-radius: 0.5em;
     border: none;
 }
 
@@ -55,5 +55,5 @@ button.change-color {
 
 .editor .stickers-container .sticker {
     font-size: 1.5em;
-    width: 42px;
+    width: 1.75em;
 }

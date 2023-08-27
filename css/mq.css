@@ -6,7 +6,7 @@
 
     .main-layout main {
         grid-column: 1/-1;
-        margin-inline: 5px;
+        margin-inline: 0.3125em;
     }
 
     .top-header nav .btn.hamburger {
@@ -32,10 +32,10 @@
         all: unset;
         display: block;
         position: absolute;
+        font-size: 1.25rem;
         right: 2px;
         top: 2px;
-        padding: 5px 10px;
-        font-size: 20px;
+        padding: .25em .5em;
         color: white;
         cursor: pointer;
         transition: color 0.3s;
@@ -84,8 +84,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
-        margin-block: 15px;
+        gap: 1.5625em;
+        margin-block: 0.9375em;
     }
 
     .editor .canvas-container {
@@ -109,20 +109,20 @@
     }
 
     .lower-header .controls .filter-by-words {
-        margin-inline-start: 25px;
+        margin-inline-start: 1.26315em;
     }
 
     .main-layout main {
         grid-column: 1/-1;
-        margin-inline: 20px;
+        margin-inline: 1.25em;
     }
 
     main .editor {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        margin-block: 15px;
+        gap: 0.9375em;
+        margin-block: 0.9375em;
     }
 
     .editor .canvas-container {
@@ -151,6 +151,6 @@
     main .editor {
         display: grid;
         grid-template-columns: 2fr 1fr;
-        column-gap: 20px;
+        column-gap: 1.25em;
     }
 }

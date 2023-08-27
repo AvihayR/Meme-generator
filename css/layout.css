@@ -24,13 +24,13 @@
 /* Gallery Layout */
 main .gallery {
     grid-template-columns: repeat(3, minmax(auto, 320px));
-    gap: 10px;
+    gap: 0.625em;
 }
 
 /* Editor layout */
 main .editor {
     grid-template-columns: 2fr 1fr;
-    column-gap: 20px;
+    column-gap: 1.25em;
 }
 
 main .editor .canvas-container {
@@ -40,5 +40,4 @@ main .editor .canvas-container {
 /* Saved-memes layout */
 main .saved-memes {
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-auto-flow: column; */
 }
