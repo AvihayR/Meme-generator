@@ -213,6 +213,7 @@ function onDownloadCanvas(elLink) {
 
 function onSaveMemeToStorage(ev) {
     ev.preventDefault()
+    onShowSavedModal()
     onResetCurrLine()
 
     setTimeout(() => {
@@ -265,4 +266,23 @@ function onAddSticker(elBtn) {
 function onResetCurrLine() {
     resetCurrLine()
     renderMeme()
+}
+
+function onShowSavedModal() {
+    document.querySelector('dialog').showModal()
+    setTimeout(() => onCloseSavedModal(), 2500)
+}
+
+function onCloseSavedModal() {
+    document.querySelector('dialog').close()
+}
+
+function onClickOutsideModal(ev, elDialog) {
+    const dialogDimensions = elDialog.getBoundingClientRect()
+    if (ev.clientX < dialogDimensions.left ||
+        ev.clientX > dialogDimensions.right ||
+        ev.clientY < dialogDimensions.top ||
+        ev.clientY > dialogDimensions.bottom) {
+        elDialog.close()
+    }
 }

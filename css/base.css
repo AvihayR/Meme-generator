@@ -31,3 +31,38 @@ img {
     width: 100%;
     height: auto;
 }
+
+.main-layout dialog.modal.saved-memes::backdrop {
+    background-color: rgb(77, 77, 77);
+    opacity: 0.4;
+}
+
+.main-layout dialog.modal.saved-memes {
+    transform: translateX(-50%);
+    left: 50%;
+    top: 35%;
+    font-size: 1.1rem;
+    text-align: center;
+    color: orangered;
+    border: 1px solid #363636;
+    border-radius: 15px;
+    box-shadow: 4px 4px 40px #363636;
+    transition: top 0.3s ease-in-out;
+}
+
+dialog.modal.saved-memes form button.go-to-saved {
+    all: unset;
+    font-size: 1.3rem;
+    color: orangered;
+    border: 1px solid orangered;
+    border-radius: 0.3604em;
+    padding: 0.3604em;
+    margin-top: 1.1057em;
+    cursor: pointer;
+    transition: background-color 0.3s color 0.2s;
+}
+
+dialog.modal.saved-memes button.go-to-saved:hover {
+    color: whitesmoke;
+    background-color: orangered;
+}

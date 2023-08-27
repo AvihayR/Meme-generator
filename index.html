@@ -119,6 +119,12 @@
 
         </section>
     </main>
+    <dialog class="modal saved-memes" onclick="onClickOutsideModal(event, this)">
+        <p>Meme saved!</p>
+        <form method="dialog">
+            <button class="go-to-saved" onclick="onShowSavedPage(event); onCloseSavedModal()">Go to saved memes</button>
+        </form>
+    </dialog>
     <footer class="flex column align-center justify-center gap-15">
         <img src="design/memegen.png" alt="memegen logo">
         <p>all rights reserved 2019</p>

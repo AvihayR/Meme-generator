@@ -91,6 +91,10 @@
     .editor .canvas-container {
         max-width: 95%;
     }
+
+    .main-layout dialog.modal.saved-memes {
+        width: 80vw;
+    }
 }
 
 /* SMALL */
