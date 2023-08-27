@@ -113,7 +113,7 @@ function checkIsOnText(pos) {
             gCurrLine = line
             return
         } else {
-            resetCurrLine()
+            onResetCurrLine()
         }
     }
 }
@@ -200,12 +200,24 @@ function loadImgToCanvas(src) {
 }
 
 function onDownloadCanvas(elLink) {
-    elLink.href = gElCanvas.toDataURL('image/jpeg')
+    onResetCurrLine()
+    setTimeout(() => {
+        if (!elLink.download) return
+
+        elLink.download = "Created meme"
+        elLink.href = gElCanvas.toDataURL('image/jpeg')
+        console.log(elLink.href)
+    }, 500)
+
 }
 
 function onSaveMemeToStorage(ev) {
     ev.preventDefault()
-    saveMemeToStorage()
+    onResetCurrLine()
+
+    setTimeout(() => {
+        saveMemeToStorage()
+    }, 500)
 }
 
 function resizeCanvas() {
@@ -247,5 +259,10 @@ function onChangeFont(ev) {
 
 function onAddSticker(elBtn) {
     addLine(elBtn.textContent)
+    renderMeme()
+}
+
+function onResetCurrLine() {
+    resetCurrLine()
     renderMeme()
 }
