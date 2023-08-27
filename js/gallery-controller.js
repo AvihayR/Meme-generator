@@ -12,6 +12,11 @@ function resetFilterBy() {
     document.querySelector('input.filter-by').value = ''
 }
 
+function onFilterGalleryByKeyword(ev) {
+    ev.preventDefault()
+    renderGallery(ev.target.dataset.name.toLowerCase())
+}
+
 function onFilterGallery(elSearch) {
     renderGallery(elSearch.value.toLowerCase())
 }
