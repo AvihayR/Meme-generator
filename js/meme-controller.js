@@ -202,11 +202,11 @@ function loadImgToCanvas(src) {
 function onDownloadCanvas(elLink) {
     onResetCurrLine()
     setTimeout(() => {
-        if (!elLink.download) return
+        if (elLink.download) return
 
         elLink.download = "Created meme"
         elLink.href = gElCanvas.toDataURL('image/jpeg')
-        console.log(elLink.href)
+        elLink.click()
     }, 500)
 
 }
@@ -223,7 +223,7 @@ function onSaveMemeToStorage(ev) {
 function resizeCanvas() {
     let width
     const elContainer = document.querySelector('.canvas-container')
-    width = elContainer.clientWidth || window.innerWidth / 2
+    width = elContainer.clientWidth || window.innerWidth / 2.5
     if (width < 350) width = 350
 
     gElCanvas.width = width
