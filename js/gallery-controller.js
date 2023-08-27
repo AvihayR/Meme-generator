@@ -26,6 +26,7 @@ function onImgSelect(elImg) {
     setImg(elImg.dataset.imgId)
     hideGallery()
     hideSavedPage()
+    resizeCanvas()
     showEditor()
     resetLines()
     renderMeme()

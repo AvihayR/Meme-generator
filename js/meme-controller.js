@@ -11,9 +11,9 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
-    resizeCanvas()
     updateTextInput()
     addListeners()
+    resizeCanvas()
     hideEditor()
 }
 
@@ -203,9 +203,13 @@ function onSaveMemeToStorage(ev) {
 }
 
 function resizeCanvas() {
+    let width
     const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
+    width = elContainer.clientWidth || window.innerWidth / 2
+    if (width < 350) width = 350
+
+    gElCanvas.width = width
+    gElCanvas.height = width
 }
 
 function resetCurrLine() {
